@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: "epilogue", sans-serif;
+  --ff-texting: "opens sans", sans-serif;
+
+  --hue: 250;
+  --bg-primary: hsl(var(--hue), 22%, 20%);
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-section: hsl(var(--hue), 50%, 80%);
+
+  font-size: 62.5%;
+  --fs-body: 1.6rem;
+  --fs-header: 2rem;
+  --fs-sectionh1: 4rem;
+  --fs-h2: clamp(3rem, 0.5rem + 3vw, 4rem);
+  --fs-h4: clamp(1rem, 0.5rem + 2vw, 3rem);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--fc-primary);
+
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+}
+
+.page {
+  max-width: 33rem;
+  margin: 0 auto;
+
+  max-height: 100vh;
+}
+
+header {
+  padding-top: 1rem;
+}
+
+header a {
+  font-family: var(--ff-texting);
+  font-size: var(--fs-header);
+  color: var(--fc-header);
+
+  text-decoration: none;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+header li {
+  list-style-type: none;
+}
+
+section {
+  font-family: var(--ff-heading);
+  margin: 2.5rem 0 2rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  animation: topdown 700ms;
+}
+
+section h1 {
+  font-size: var(--fs-headerh1);
+  line-height: 4.8rem;
+  font-weight: 800;
+}
+
+section p {
+  color: var(--fc-header);
+  text-transform: uppercase;
+
+  font-size: var(--fs-body);
+  line-height: 3.2rem;
+  letter-spacing: 3px;
+}
+
+main {
+  animation: downtop 700ms 200ms backwards;
+}
+
+.card {
+  display: flex; 
+  flex-direction: column;
+
+  gap: 5rem;
+
+  padding: 8rem 0;
+
+  margin: 0 auto;
+}
+
+.card div {
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+
+  gap: 1.5rem;
+}
+
+.card h4 {
+  font-size: var(--fs-h4);
+}
+
+footer {
+  font-family: var(--ff-texting);
+  font-size: var(--fs-body);
+
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--fc-primary);
+
+  background-color: var(--bg-primary);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translatey(0);
+  }
+}
+
+@media (min-width: 700px) {
+  :root {
+    --fs-headerh1: 5.6rem;
+  }
+  .page {
+    max-width: 140rem;
+    padding: 0 7rem;
+  }
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
